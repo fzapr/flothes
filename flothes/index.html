@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flothes | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body text-brand-900 bg-brand-100 antialiased selection:bg-brand-900 selection:text-white flex flex-col min-h-screen">
+
+    <div id="modals-container"></div>
+    <div id="navbar-container"></div>
+
+    <main class="flex-grow pt-20" id="main-container">
+        <section class="relative pt-12 pb-20 lg:pt-28 lg:pb-32 overflow-hidden flex items-center min-h-[85vh]">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200"></div>
+                <div class="absolute right-0 top-0 w-1/2 h-full bg-[url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-30 mix-blend-multiply"></div>
+            </div>
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
+                <div class="max-w-2xl">
+                    <span class="inline-block py-1 px-3 rounded-full bg-brand-900 text-white text-xs font-semibold tracking-wider mb-6 uppercase">Koleksi Musim Panas 2026</span>
+                    <h1 class="font-heading text-5xl lg:text-7xl font-bold leading-tight mb-6">Mendefinisikan <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-600 to-brand-900">Gaya Anda.</span></h1>
+                    <div class="text-xl lg:text-2xl text-gray-700 font-medium h-12 mb-8 flex items-center">
+                        Kami hadir untuk memberikan <span id="typing-text" class="ml-2 font-bold text-brand-900"></span><span class="typing-cursor"></span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="category.html" class="inline-flex justify-center items-center px-8 py-4 bg-brand-900 text-white font-semibold rounded-none hover:bg-brand-800 transition-all duration-300 transform hover:-translate-y-1">Belanja Sekarang <i class="fa-solid fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="marquee-container border-y border-gray-800 transform -rotate-1 scale-105 origin-center my-10 shadow-xl">
+            <div class="marquee-content">
+                <span>🔥 DISKON 20% PENGGUNA BARU</span>
+                <span>✨ GRATIS ONGKIR SELURUH INDONESIA</span>
+                <span>🌟 KUALITAS PREMIUM</span>
+                <span>⚡ PENGIRIMAN CEPAT</span>
+                <span>🔥 DISKON 20% PENGGUNA BARU</span>
+                <span>✨ GRATIS ONGKIR SELURUH INDONESIA</span>
+                <span>🌟 KUALITAS PREMIUM</span>
+                <span>⚡ PENGIRIMAN CEPAT</span>
+            </div>
+        </div>
+
+        <section class="py-12 bg-white border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-200">
+                    <div class="reveal p-4">
+                        <i class="fa-solid fa-truck-fast text-3xl mb-4 text-brand-900"></i>
+                        <h3 class="font-bold text-lg mb-2">Gratis Ongkir</h3>
+                        <p class="text-sm text-gray-500">Ke seluruh wilayah Indonesia tanpa minimal belanja.</p>
+                    </div>
+                    <div class="reveal p-4" style="transition-delay: 100ms;">
+                        <i class="fa-solid fa-gem text-3xl mb-4 text-brand-900"></i>
+                        <h3 class="font-bold text-lg mb-2">Kualitas Premium</h3>
+                        <p class="text-sm text-gray-500">Material pilihan terbaik yang nyaman dan tahan lama.</p>
+                    </div>
+                    <div class="reveal p-4" style="transition-delay: 200ms;">
+                        <i class="fa-solid fa-arrow-rotate-left text-3xl mb-4 text-brand-900"></i>
+                        <h3 class="font-bold text-lg mb-2">Pengembalian Mudah</h3>
+                        <p class="text-sm text-gray-500">Garansi retur 7 hari jika barang tidak sesuai ekspektasi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-brand-100">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="font-heading text-4xl font-bold mb-4">Belanja Berdasarkan Kategori</h2>
+                    <p class="text-gray-500">Temukan gaya yang paling sesuai dengan kepribadian Anda.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="category.html?type=wanita" class="group relative overflow-hidden h-[400px] reveal block">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-8 left-8">
+                            <h3 class="text-white text-2xl font-bold mb-2">Wanita</h3>
+                            <span class="text-white/80 flex items-center text-sm font-medium group-hover:text-white transition-colors">Lihat Koleksi <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i></span>
+                        </div>
+                    </a>
+                    <a href="category.html?type=pria" class="group relative overflow-hidden h-[400px] reveal block" style="transition-delay: 100ms;">
+                        <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=1000&auto=format&fit=crop" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-8 left-8">
+                            <h3 class="text-white text-2xl font-bold mb-2">Pria</h3>
+                            <span class="text-white/80 flex items-center text-sm font-medium group-hover:text-white transition-colors">Lihat Koleksi <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i></span>
+                        </div>
+                    </a>
+                    <a href="category.html?type=aksesoris" class="group relative overflow-hidden h-[400px] reveal block" style="transition-delay: 200ms;">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=1000&auto=format&fit=crop" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-8 left-8">
+                            <h3 class="text-white text-2xl font-bold mb-2">Aksesoris</h3>
+                            <span class="text-white/80 flex items-center text-sm font-medium group-hover:text-white transition-colors">Lihat Koleksi <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="flex justify-between items-end mb-12 reveal">
+                    <div>
+                        <h2 class="font-heading text-4xl font-bold mb-2">Koleksi Eksklusif</h2>
+                        <p class="text-gray-500">Pakaian yang dirancang untuk kenyamanan dan estetika modern.</p>
+                    </div>
+                    <a href="category.html" class="hidden sm:inline-block border-b-2 border-brand-900 pb-1 font-semibold hover:text-gray-500 transition-colors">Lihat Semua</a>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="product-card group cursor-pointer reveal relative" onclick="window.location.href='product.html'">
+                        <button onclick="toggleHeart(this, 'Urban Oversized Shirt')" class="absolute top-3 right-3 z-10 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 shadow-md transition-colors"><i class="fa-regular fa-heart"></i></button>
+                        <div class="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4">
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1000&auto=format&fit=crop" class="product-img object-cover w-full h-full">
+                            <div class="absolute top-3 left-3 bg-white px-2 py-1 text-xs font-bold uppercase tracking-wide">Baru</div>
+                            <div class="img-overlay absolute inset-0 bg-black/20 flex items-center justify-center backdrop-blur-sm">
+                                <button class="bg-white text-brand-900 px-6 py-3 font-semibold hover:bg-brand-900 hover:text-white transition-colors duration-300 transform translate-y-4 group-hover:translate-y-0">Lihat Detail</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg mb-1 group-hover:text-gray-600 transition-colors">Urban Oversized Shirt</h3>
+                                <p class="text-sm text-gray-500">Katun Premium</p>
+                            </div>
+                            <span class="font-semibold text-lg">Rp 349.000</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card group cursor-pointer reveal relative" style="transition-delay: 100ms;" onclick="window.location.href='product.html'">
+                        <button onclick="toggleHeart(this, 'Classic Denim Jacket')" class="absolute top-3 right-3 z-10 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 shadow-md transition-colors"><i class="fa-regular fa-heart"></i></button>
+                        <div class="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4">
+                            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1000&auto=format&fit=crop" class="product-img object-cover w-full h-full">
+                            <div class="img-overlay absolute inset-0 bg-black/20 flex items-center justify-center backdrop-blur-sm">
+                                <button class="bg-white text-brand-900 px-6 py-3 font-semibold hover:bg-brand-900 hover:text-white transition-colors duration-300 transform translate-y-4 group-hover:translate-y-0">Lihat Detail</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg mb-1 group-hover:text-gray-600 transition-colors">Classic Denim Jacket</h3>
+                                <p class="text-sm text-gray-500">Outerwear</p>
+                            </div>
+                            <span class="font-semibold text-lg">Rp 599.000</span>
+                        </div>
+                    </div>
+
+                    <div class="product-card group cursor-pointer reveal relative" style="transition-delay: 200ms;" onclick="window.location.href='product.html'">
+                        <button onclick="toggleHeart(this, 'Essential Black Tee')" class="absolute top-3 right-3 z-10 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 shadow-md transition-colors"><i class="fa-regular fa-heart"></i></button>
+                        <div class="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4">
+                            <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000&auto=format&fit=crop" class="product-img object-cover w-full h-full">
+                            <div class="absolute top-3 left-3 bg-red-600 text-white px-2 py-1 text-xs font-bold uppercase tracking-wide">-15%</div>
+                            <div class="img-overlay absolute inset-0 bg-black/20 flex items-center justify-center backdrop-blur-sm">
+                                <button class="bg-white text-brand-900 px-6 py-3 font-semibold hover:bg-brand-900 hover:text-white transition-colors duration-300 transform translate-y-4 group-hover:translate-y-0">Lihat Detail</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg mb-1 group-hover:text-gray-600 transition-colors">Essential Black Tee</h3>
+                                <p class="text-sm text-gray-500">Basic</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="font-semibold text-lg text-red-600 block">Rp 169.150</span>
+                                <span class="text-sm text-gray-400 line-through">Rp 199.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card group cursor-pointer reveal relative" style="transition-delay: 300ms;" onclick="window.location.href='product.html'">
+                        <button onclick="toggleHeart(this, 'Minimalist Midi Dress')" class="absolute top-3 right-3 z-10 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 shadow-md transition-colors"><i class="fa-regular fa-heart"></i></button>
+                        <div class="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1000&auto=format&fit=crop" class="product-img object-cover w-full h-full">
+                            <div class="img-overlay absolute inset-0 bg-black/20 flex items-center justify-center backdrop-blur-sm">
+                                <button class="bg-white text-brand-900 px-6 py-3 font-semibold hover:bg-brand-900 hover:text-white transition-colors duration-300 transform translate-y-4 group-hover:translate-y-0">Lihat Detail</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg mb-1 group-hover:text-gray-600 transition-colors">Minimalist Midi Dress</h3>
+                                <p class="text-sm text-gray-500">Wanita</p>
+                            </div>
+                            <span class="font-semibold text-lg">Rp 429.000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-brand-100">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="font-heading text-4xl font-bold mb-4">Apa Kata Mereka?</h2>
+                    <p class="text-gray-500">Ribuan pelanggan telah mempercayakan gaya mereka pada Flothes.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 shadow-sm reveal relative">
+                        <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-6 left-6"></i>
+                        <div class="flex text-yellow-400 mb-4 relative z-10 mt-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-700 mb-6 italic relative z-10">"Bahan kemejanya sangat premium! Dingin dipakai seharian dan potongannya pas banget di badan. Pasti bakal order lagi buat koleksi warna lain."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden mr-4"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+                            <div><h4 class="font-bold text-sm">Sarah Amalia</h4><p class="text-xs text-gray-500">Jakarta Selatan</p></div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 shadow-sm reveal relative" style="transition-delay: 100ms;">
+                        <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-6 left-6"></i>
+                        <div class="flex text-yellow-400 mb-4 relative z-10 mt-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-gray-700 mb-6 italic relative z-10">"Pengirimannya super cepat, kemarin pesan hari ini sampai. Desain jaket denimnya juga timeless, gampang banget di-mix and match."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden mr-4"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+                            <div><h4 class="font-bold text-sm">Budi Pratama</h4><p class="text-xs text-gray-500">Bandung</p></div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 shadow-sm reveal relative" style="transition-delay: 200ms;">
+                        <i class="fa-solid fa-quote-left text-4xl text-gray-200 absolute top-6 left-6"></i>
+                        <div class="flex text-yellow-400 mb-4 relative z-10 mt-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        <p class="text-gray-700 mb-6 italic relative z-10">"Suka banget sama packaging-nya yang eco-friendly. Kualitas bajunya nggak kalah sama brand internasional. Highly recommended!"</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden mr-4"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover"></div>
+                            <div><h4 class="font-bold text-sm">Nadia Shafira</h4><p class="text-xs text-gray-500">Surabaya</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-brand-900 text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+            <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
+                <h2 class="font-heading text-4xl lg:text-6xl font-bold mb-6">Jangan Hanya Mengikuti Tren. <br>Jadilah Tren.</h2>
+                <p class="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">Bergabung dengan ribuan orang lainnya yang telah meningkatkan rasa percaya diri mereka melalui koleksi pakaian Flothes. Klaim diskon pertama Anda sekarang.</p>
+                <form class="flex flex-col sm:flex-row max-w-lg mx-auto gap-2" onsubmit="event.preventDefault(); showToast('Berhasil berlangganan!');">
+                    <input type="email" placeholder="Masukkan email Anda" class="flex-1 px-6 py-4 bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-white transition-colors rounded-none" required>
+                    <button type="submit" class="px-8 py-4 bg-white text-brand-900 font-bold hover:bg-gray-200 transition-colors rounded-none whitespace-nowrap">Dapatkan Diskon 20%</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="assets/js/store.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/ai-stylist.js"></script>
+    <script src="assets/js/loader.js"></script>
+</body>
+</html>

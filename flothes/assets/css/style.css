@@ -1,0 +1,45 @@
+/* Animasi Marquee */
+.marquee-container { overflow: hidden; white-space: nowrap; width: 100%; background-color: #0f0f0f; color: white; padding: 12px 0; display: flex; }
+.marquee-content { display: inline-block; animation: marquee 20s linear infinite; }
+.marquee-content span { margin: 0 2rem; font-family: 'Syne', sans-serif; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* Animasi Scroll Reveal */
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* Cursor Typing */
+.typing-cursor { display: inline-block; width: 3px; height: 1em; background-color: #0f0f0f; margin-left: 4px; animation: blink 0.8s step-end infinite; vertical-align: text-bottom; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* Efek Hover Kustom pada Card */
+.product-card .img-overlay { opacity: 0; transition: opacity 0.4s ease; }
+.product-card:hover .img-overlay { opacity: 1; }
+.product-card img.product-img { transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.product-card:hover img.product-img { transform: scale(1.08); }
+
+/* Modals & Drawers Animation */
+.popup-modal { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.popup-modal.active { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
+.popup-modal.inactive { opacity: 0; pointer-events: none; transform: translateY(20px) scale(0.95); }
+
+.drawer-overlay { transition: opacity 0.3s ease; }
+.drawer-right { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform: translateX(100%); }
+.drawer-right.open { transform: translateX(0); }
+
+.drawer-bottom { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform: translateY(100%); }
+.drawer-bottom.open { transform: translateY(0); }
+
+/* Profile Tabs & Mobile Menu */
+.profile-section { display: none; animation: fadeIn 0.4s ease-out; }
+.profile-section.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+#mobile-menu { transition: transform 0.3s ease-in-out; transform: translateX(-100%); }
+#mobile-menu.open { transform: translateX(0); }
+
+/* Toast & AI Button */
+.toast { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); transform: translateY(100px); opacity: 0; pointer-events: none; }
+.toast.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.floating-ai-btn { animation: bounceSoft 2s infinite; }
+@keyframes bounceSoft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }

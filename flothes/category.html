@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flothes | Koleksi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body text-brand-900 bg-brand-100 antialiased selection:bg-brand-900 selection:text-white flex flex-col min-h-screen">
+
+    <div id="modals-container"></div>
+    <div id="navbar-container"></div>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow pt-20" id="main-container">
+        <!-- HEADER -->
+        <div class="bg-white border-b border-gray-200 py-12">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+                <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4">Koleksi Semua Produk</h1>
+                <p class="text-gray-500 max-w-2xl mx-auto">Temukan pakaian favorit Anda dari pilihan terbaik kami. Kualitas premium untuk gaya hidup modern.</p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- FILTER SIDEBAR (Desktop) -->
+                <div class="hidden md:block w-64 flex-shrink-0">
+                    <div class="sticky top-32 space-y-8">
+                        <div>
+                            <h3 class="font-bold text-lg mb-4 border-b border-gray-200 pb-2">Kategori</h3>
+                            <ul class="space-y-3 text-sm text-gray-600">
+                                <li><a href="#" class="font-bold text-brand-900">Semua Pakaian (124)</a></li>
+                                <li><a href="#" class="hover:text-brand-900 transition-colors">Atasan (45)</a></li>
+                                <li><a href="#" class="hover:text-brand-900 transition-colors">Bawahan (32)</a></li>
+                                <li><a href="#" class="hover:text-brand-900 transition-colors">Outerwear (28)</a></li>
+                                <li><a href="#" class="hover:text-brand-900 transition-colors">Aksesoris (19)</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-4 border-b border-gray-200 pb-2">Warna</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="w-8 h-8 rounded-full bg-black border-2 border-transparent hover:border-gray-400 focus:border-gray-400 transition-all"></button>
+                                <button class="w-8 h-8 rounded-full bg-white border-2 border-gray-200 hover:border-gray-400 focus:border-gray-400 transition-all"></button>
+                                <button class="w-8 h-8 rounded-full bg-blue-900 border-2 border-transparent hover:border-gray-400 focus:border-gray-400 transition-all"></button>
+                                <button class="w-8 h-8 rounded-full bg-green-800 border-2 border-transparent hover:border-gray-400 focus:border-gray-400 transition-all"></button>
+                                <button class="w-8 h-8 rounded-full bg-red-800 border-2 border-transparent hover:border-gray-400 focus:border-gray-400 transition-all"></button>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-4 border-b border-gray-200 pb-2">Rentang Harga</h3>
+                            <input type="range" min="0" max="100" class="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            <div class="flex justify-between text-xs text-gray-500 mt-2">
+                                <span>Rp 0</span>
+                                <span>Rp 1.000.000+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCT GRID -->
+                <div class="flex-1">
+                    <div class="flex justify-between items-center mb-8">
+                        <span class="text-sm text-gray-500">Menampilkan 1-12 dari 124 produk</span>
+                        <div class="flex items-center gap-4">
+                            <button onclick="toggleMobileFilter()" class="md:hidden flex items-center gap-2 text-sm font-bold border border-gray-200 px-4 py-2 hover:bg-gray-50"><i class="fa-solid fa-sliders"></i> Filter</button>
+                            <select class="border border-gray-200 text-sm px-4 py-2 bg-white focus:outline-none focus:border-brand-900">
+                                <option>Terbaru</option>
+                                <option>Terpopuler</option>
+                                <option>Harga: Rendah ke Tinggi</option>
+                                <option>Harga: Tinggi ke Rendah</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+                        <!-- Produks -->
+                        <div class="product-card group cursor-pointer reveal relative" onclick="window.location.href='product.html'">
+                            <button onclick="toggleHeart(this, 'Urban Oversized Shirt')" class="absolute top-3 right-3 z-10 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 shadow-md transition-colors"><i class="fa-regular fa-heart"></i></button>
+                            <div class="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4">
+                                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1000&auto=format&fit=crop" class="product-img object-cover w-full h-full">
+                                <div class="absolute top-3 left-3 bg-white px-2 py-1 text-xs font-bold uppercase tracking-wide">Baru</div>
+                            </div>
+                            <h3 class="font-bold text-sm md:text-base mb-1 group-hover:text-gray-600 transition-colors">Urban Oversized Shirt</h3>
+                            <span class="font-semibold text-sm md:text-base text-gray-900">Rp 349.000</span>
+                        </div>
+                        <div class="product-card group cursor-pointer reveal relative" style="transition-delay: 50ms;" onclick="window.location.href='product.html'">
+                            <button onclick="toggleHeart(this, 'Classic Denim Jacket')" class="absolute top-3 right-3 z-10 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 shadow-md transition-colors"><i class="fa-regular fa-heart"></i></button>
+                            <div class="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4">
+                                <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1000&auto=format&fit=crop" class="product-img object-cover w-full h-full">
+                            </div>
+                            <h3 class="font-bold text-sm md:text-base mb-1 group-hover:text-gray-600 transition-colors">Classic Denim Jacket</h3>
+                            <span class="font-semibold text-sm md:text-base text-gray-900">Rp 599.000</span>
+                        </div>
+                        <div class="product-card group cursor-pointer reveal relative" style="transition-delay: 100ms;" onclick="window.location.href='product.html'">
+                            <button onclick="toggleHeart(this, 'Essential Black Tee')" class="absolute top-3 right-3 z-10 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 shadow-md transition-colors"><i class="fa-regular fa-heart"></i></button>
+                            <div class="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4">
+                                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000&auto=format&fit=crop" class="product-img object-cover w-full h-full">
+                                <div class="absolute top-3 left-3 bg-red-600 text-white px-2 py-1 text-xs font-bold uppercase tracking-wide">-15%</div>
+                            </div>
+                            <h3 class="font-bold text-sm md:text-base mb-1 group-hover:text-gray-600 transition-colors">Essential Black Tee</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="font-semibold text-sm md:text-base text-red-600">Rp 169.150</span>
+                                <span class="text-xs text-gray-400 line-through">Rp 199.000</span>
+                            </div>
+                        </div>
+                        <div class="product-card group cursor-pointer reveal relative" style="transition-delay: 150ms;" onclick="window.location.href='product.html'">
+                            <button onclick="toggleHeart(this, 'Minimalist Midi Dress')" class="absolute top-3 right-3 z-10 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 shadow-md transition-colors"><i class="fa-regular fa-heart"></i></button>
+                            <div class="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4">
+                                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1000&auto=format&fit=crop" class="product-img object-cover w-full h-full">
+                            </div>
+                            <h3 class="font-bold text-sm md:text-base mb-1 group-hover:text-gray-600 transition-colors">Minimalist Midi Dress</h3>
+                            <span class="font-semibold text-sm md:text-base text-gray-900">Rp 429.000</span>
+                        </div>
+                        <div class="product-card group cursor-pointer reveal relative" style="transition-delay: 200ms;" onclick="window.location.href='product.html'">
+                            <button onclick="toggleHeart(this, 'Corduroy Trousers')" class="absolute top-3 right-3 z-10 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 shadow-md transition-colors"><i class="fa-regular fa-heart"></i></button>
+                            <div class="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4">
+                                <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=1000&auto=format&fit=crop" class="product-img object-cover w-full h-full">
+                            </div>
+                            <h3 class="font-bold text-sm md:text-base mb-1 group-hover:text-gray-600 transition-colors">Corduroy Trousers</h3>
+                            <span class="font-semibold text-sm md:text-base text-gray-900">Rp 399.000</span>
+                        </div>
+                        <div class="product-card group cursor-pointer reveal relative" style="transition-delay: 250ms;" onclick="window.location.href='product.html'">
+                            <button onclick="toggleHeart(this, 'Knit Sweater')" class="absolute top-3 right-3 z-10 bg-white w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 shadow-md transition-colors"><i class="fa-regular fa-heart"></i></button>
+                            <div class="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4">
+                                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000&auto=format&fit=crop" class="product-img object-cover w-full h-full">
+                                <div class="absolute top-3 left-3 bg-red-600 text-white px-2 py-1 text-xs font-bold uppercase tracking-wide">Sold Out</div>
+                            </div>
+                            <h3 class="font-bold text-sm md:text-base mb-1 group-hover:text-gray-600 transition-colors">Knit Sweater</h3>
+                            <span class="font-semibold text-sm md:text-base text-gray-900">Rp 459.000</span>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="flex justify-center mt-16 space-x-2">
+                        <button class="w-10 h-10 border border-gray-200 flex items-center justify-center hover:bg-gray-50"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="w-10 h-10 bg-brand-900 text-white font-bold flex items-center justify-center">1</button>
+                        <button class="w-10 h-10 border border-gray-200 flex items-center justify-center hover:bg-gray-50">2</button>
+                        <button class="w-10 h-10 border border-gray-200 flex items-center justify-center hover:bg-gray-50">3</button>
+                        <span class="w-10 h-10 flex items-center justify-center text-gray-400">...</span>
+                        <button class="w-10 h-10 border border-gray-200 flex items-center justify-center hover:bg-gray-50"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Filter Drawer -->
+        <div id="mobile-filter-overlay" class="drawer-overlay fixed inset-0 bg-black/50 z-[80] hidden opacity-0" onclick="toggleMobileFilter()"></div>
+        <div id="mobile-filter-drawer" class="drawer-bottom fixed bottom-0 left-0 w-full bg-white z-[90] rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.1)] h-[80vh] flex flex-col">
+            <div class="flex items-center justify-between p-6 border-b border-gray-100">
+                <h2 class="font-heading font-bold text-2xl">Filter</h2>
+                <button onclick="toggleMobileFilter()" class="text-gray-400 hover:text-brand-900 text-2xl transition-colors"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-6 space-y-8">
+                <!-- Sama dengan sidebar desktop -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Kategori</h3>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li><a href="#" class="font-bold text-brand-900">Semua Pakaian</a></li>
+                        <li><a href="#" class="hover:text-brand-900 transition-colors">Atasan</a></li>
+                        <li><a href="#" class="hover:text-brand-900 transition-colors">Bawahan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="p-6 border-t border-gray-100 bg-gray-50 flex gap-4">
+                <button onclick="toggleMobileFilter()" class="flex-1 py-3 font-bold text-gray-500 border border-gray-300 bg-white">Reset</button>
+                <button onclick="toggleMobileFilter()" class="flex-1 py-3 font-bold text-white bg-brand-900">Terapkan</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="assets/js/store.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/ai-stylist.js"></script>
+    <script src="assets/js/loader.js"></script>
+</body>
+</html>

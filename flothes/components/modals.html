@@ -1,0 +1,178 @@
+<!-- Toast Notification Container -->
+<div id="toast-container" class="toast fixed bottom-24 md:bottom-8 left-1/2 transform -translate-x-1/2 z-[110] bg-brand-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 font-medium text-sm whitespace-nowrap">
+    <i class="fa-solid fa-circle-check text-green-400"></i>
+    <span id="toast-msg">Berhasil!</span>
+</div>
+
+<!-- Floating AI Stylist Button -->
+<button onclick="toggleAIStylist()" id="floating-ai-btn" class="floating-ai-btn fixed bottom-8 right-8 z-[90] bg-brand-900 text-white p-4 rounded-full shadow-2xl hover:bg-brand-800 transition-colors flex items-center justify-center gap-2 group">
+    <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
+    <span class="hidden group-hover:inline-block font-bold text-sm whitespace-nowrap overflow-hidden pr-2">Tanya AI Stylist ✨</span>
+</button>
+
+<!-- AI Stylist Modal -->
+<div id="ai-stylist-modal" class="inactive popup-modal fixed bottom-24 right-8 z-[95] w-80 md:w-96 bg-white border border-gray-200 shadow-2xl rounded-2xl overflow-hidden flex flex-col">
+    <div class="bg-brand-900 text-white p-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <i class="fa-solid fa-robot"></i>
+            <h3 class="font-bold font-heading">Flothes AI Stylist ✨</h3>
+        </div>
+        <button onclick="toggleAIStylist()" class="text-gray-300 hover:text-white p-2 transition-colors"><i class="fa-solid fa-xmark text-lg"></i></button>
+    </div>
+    <div class="p-4 bg-gray-50 h-64 overflow-y-auto flex flex-col gap-4 text-sm" id="ai-chat-history">
+        <div class="bg-brand-100 p-3 rounded-lg rounded-tl-none self-start border border-gray-200 max-w-[85%]">
+            Halo! Saya AI Stylist pribadi Anda. Mau cari outfit untuk acara apa hari ini? ✨
+        </div>
+        <div id="ai-stylist-output" class="bg-brand-100 p-3 rounded-lg rounded-tl-none self-start border border-gray-200 max-w-[85%] hidden leading-relaxed"></div>
+    </div>
+    <div class="p-3 border-t border-gray-200 bg-white">
+        <textarea id="ai-stylist-input" rows="2" placeholder="Contoh: Baju untuk kencan..." class="w-full text-sm p-2 border border-gray-300 rounded focus:outline-none focus:border-brand-900 resize-none mb-2"></textarea>
+        <button id="ai-stylist-btn" onclick="generateStyleAdvice()" class="w-full bg-brand-900 text-white font-bold py-2 rounded hover:bg-brand-800 transition-colors flex justify-center items-center gap-2 text-sm mt-2">
+            Kirim ✨
+        </button>
+    </div>
+</div>
+
+<!-- Search Modal Overlay -->
+<div id="search-modal" class="inactive popup-modal fixed inset-0 z-[100] bg-white/95 backdrop-blur-md flex flex-col items-center justify-center cursor-pointer" onclick="closeSearch()">
+    <button onclick="closeSearch()" class="absolute top-8 right-8 md:top-12 md:right-12 text-4xl text-gray-400 hover:text-brand-900 transition-colors transform hover:rotate-90 duration-300 z-10">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="w-full max-w-4xl px-6 cursor-default relative z-20" onclick="event.stopPropagation()">
+        <div class="relative">
+            <input id="global-search-input" type="text" placeholder="Cari kemeja, jaket, atau warna..." class="w-full text-3xl md:text-5xl font-heading font-bold bg-transparent border-b-4 border-gray-200 focus:border-brand-900 pb-4 outline-none transition-colors placeholder-gray-300">
+            <button onclick="executeSearch()" class="absolute right-4 top-4 text-3xl text-gray-300 hover:text-brand-900 transition-colors"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <div class="mt-8">
+            <h4 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">Pencarian Populer</h4>
+            <div class="flex flex-wrap gap-3">
+                <a href="category.html?search=Oversize+Shirt" class="px-4 py-2 bg-gray-100 hover:bg-brand-900 hover:text-white transition-colors text-sm font-medium rounded-full">Oversize Shirt</a>
+                <a href="category.html?search=Jaket+Denim" class="px-4 py-2 bg-gray-100 hover:bg-brand-900 hover:text-white transition-colors text-sm font-medium rounded-full">Jaket Denim</a>
+                <a href="category.html?search=Dress" class="px-4 py-2 bg-gray-100 hover:bg-brand-900 hover:text-white transition-colors text-sm font-medium rounded-full">Dress Hitam</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Autentikasi -->
+<div id="auth-modal" class="inactive popup-modal fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 cursor-pointer" onclick="closeAuthModal()">
+    <div class="bg-white p-8 max-w-sm w-full relative shadow-2xl overflow-hidden cursor-default" onclick="event.stopPropagation()">
+        <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-2xl text-gray-400 hover:text-brand-900 transition-colors"><i class="fa-solid fa-xmark"></i></button>
+        <div class="flex border-b border-gray-200 mb-6">
+            <button onclick="switchAuthTab('login')" id="tab-btn-login" class="flex-1 py-3 text-center font-bold border-b-2 border-brand-900 text-brand-900">Masuk</button>
+            <button onclick="switchAuthTab('register')" id="tab-btn-register" class="flex-1 py-3 text-center font-bold text-gray-400 border-b-2 border-transparent">Daftar</button>
+        </div>
+        <form id="form-login" class="space-y-4 block">
+            <input type="email" placeholder="Email Anda" class="w-full border border-gray-300 p-3 rounded-none focus:outline-none focus:border-brand-900" value="budi@email.com">
+            <input type="password" placeholder="Kata Sandi" class="w-full border border-gray-300 p-3 rounded-none focus:outline-none focus:border-brand-900" value="password123">
+            <div class="flex justify-end"><a href="#" class="text-xs text-brand-900 underline">Lupa Kata Sandi?</a></div>
+            <button type="button" onclick="processLogin()" id="btn-login" class="w-full bg-brand-900 text-white font-bold py-3 hover:bg-brand-800 transition-colors mt-2">Masuk Akun</button>
+        </form>
+        <form id="form-register" class="space-y-4 hidden">
+            <input type="text" placeholder="Nama Lengkap" class="w-full border border-gray-300 p-3 rounded-none focus:outline-none focus:border-brand-900">
+            <input type="email" placeholder="Email Anda" class="w-full border border-gray-300 p-3 rounded-none focus:outline-none focus:border-brand-900">
+            <input type="password" placeholder="Buat Kata Sandi" class="w-full border border-gray-300 p-3 rounded-none focus:outline-none focus:border-brand-900">
+            <button type="button" onclick="processLogin()" class="w-full bg-brand-900 text-white font-bold py-3 hover:bg-brand-800 transition-colors mt-2">Daftar Sekarang</button>
+        </form>
+    </div>
+</div>
+
+<!-- Wishlist Drawer -->
+<div id="wishlist-overlay" class="drawer-overlay fixed inset-0 bg-black/50 z-[80] hidden opacity-0 backdrop-blur-sm" onclick="toggleWishlistDrawer()"></div>
+<div id="wishlist-drawer" class="drawer-right fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white z-[90] shadow-2xl flex flex-col">
+    <div class="flex items-center justify-between p-6 border-b border-gray-100">
+        <h2 class="font-heading font-bold text-2xl"><i class="fa-regular fa-heart mr-2"></i> Wishlist</h2>
+        <button onclick="toggleWishlistDrawer()" class="text-gray-400 hover:text-brand-900 text-2xl transition-colors"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="flex-1 overflow-y-auto p-6" id="wishlist-items-container">
+        <!-- populated dynamically, but keeping empty state static -->
+        <div id="empty-wishlist-state" class="flex flex-col items-center justify-center h-full text-center">
+            <i class="fa-regular fa-heart text-5xl text-gray-200 mb-4"></i>
+            <h3 class="font-bold text-lg mb-2">Wishlist Masih Kosong</h3>
+            <p class="text-sm text-gray-500">Simpan produk yang Anda sukai di sini.</p>
+            <a href="category.html" class="mt-6 border border-brand-900 text-brand-900 px-6 py-2 font-bold hover:bg-brand-900 hover:text-white transition-colors inline-block">Belanja Sekarang</a>
+        </div>
+    </div>
+</div>
+
+<!-- Cart Drawer -->
+<div id="cart-drawer-overlay" class="drawer-overlay fixed inset-0 bg-black/50 z-[80] hidden opacity-0 backdrop-blur-sm" onclick="toggleCartDrawer()"></div>
+<div id="cart-drawer" class="drawer-right fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white z-[90] shadow-2xl flex flex-col">
+    <div class="flex items-center justify-between p-6 border-b border-gray-100">
+        <h2 class="font-heading font-bold text-2xl">Keranjang (<span id="drawer-cart-count">0</span>)</h2>
+        <button onclick="toggleCartDrawer()" class="text-gray-400 hover:text-brand-900 text-2xl transition-colors"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="flex-1 overflow-y-auto p-6 flex flex-col relative">
+        <div id="cart-items-container">
+            <!-- populated by store.js -->
+        </div>
+        <!-- Empty state for cart -->
+        <div id="empty-cart-state" class="hidden flex-col items-center justify-center h-full text-center absolute inset-0 pt-20">
+            <i class="fa-solid fa-cart-arrow-down text-5xl text-gray-200 mb-4"></i>
+            <h3 class="font-bold text-lg mb-2">Keranjang Kosong</h3>
+            <a href="category.html" class="mt-6 border border-brand-900 text-brand-900 px-6 py-2 font-bold hover:bg-brand-900 hover:text-white transition-colors inline-block">Belanja Sekarang</a>
+        </div>
+    </div>
+    <div class="border-t border-gray-100 p-6 bg-gray-50">
+        <div class="flex justify-between items-center mb-4">
+            <span class="text-gray-600 font-medium text-sm">Subtotal</span>
+            <span class="font-bold text-lg" id="cart-subtotal">Rp 0</span>
+        </div>
+        <a href="checkout.html" class="w-full bg-brand-900 text-white font-bold py-4 uppercase tracking-wide hover:bg-brand-800 transition-colors text-center inline-block">Lanjut ke Checkout</a>
+    </div>
+</div>
+
+<!-- Payment Modal -->
+<div id="payment-modal" class="inactive popup-modal fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 cursor-pointer" onclick="document.getElementById('payment-modal').classList.replace('active','inactive')">
+    <div class="bg-white p-8 max-w-sm w-full text-center relative border-t-4 border-brand-900 shadow-2xl cursor-default" onclick="event.stopPropagation()">
+        <div id="payment-loading" class="flex flex-col items-center">
+            <i class="fa-solid fa-circle-notch fa-spin text-5xl text-brand-900 mb-6"></i>
+            <h3 class="text-xl font-heading font-bold mb-2">Memproses Pembayaran...</h3>
+        </div>
+        <div id="payment-success" class="hidden flex-col items-center">
+            <i class="fa-solid fa-circle-check text-6xl text-green-500 mb-6"></i>
+            <h3 class="text-xl font-heading font-bold mb-2">Pembayaran Berhasil!</h3>
+        </div>
+    </div>
+</div>
+
+<!-- Tracking Modal -->
+<div id="tracking-modal" class="inactive popup-modal fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-end md:items-center justify-center p-0 md:p-4 cursor-pointer" onclick="closeTracking()">
+    <div class="bg-white w-full h-[90vh] md:h-auto md:max-h-[90vh] md:max-w-md md:rounded-2xl relative shadow-2xl flex flex-col overflow-hidden rounded-t-2xl cursor-default" onclick="event.stopPropagation()">
+        <div class="relative h-[40%] md:h-64 w-full bg-gray-200 flex-shrink-0">
+            <iframe src="https://maps.google.com/maps?q=Jalan%20Sudirman,%20Jakarta&t=m&z=15&output=embed&iwloc=near" width="100%" height="100%" style="border:0; filter: grayscale(20%);" allowfullscreen="" loading="lazy"></iframe>
+            <button onclick="closeTracking()" class="absolute top-4 left-4 bg-white text-brand-900 w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-100 transition-colors z-20"><i class="fa-solid fa-arrow-left"></i></button>
+        </div>
+        <div class="flex-1 bg-white relative z-10 p-6 overflow-y-auto rounded-t-3xl -mt-6 shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.1)]">
+            <div class="w-12 h-1.5 bg-gray-300 rounded-full mx-auto mb-6"></div>
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-heading font-bold text-lg">Status Pengiriman</h3>
+            </div>
+            <div class="relative border-l-2 border-gray-200 ml-3 space-y-6 pb-2">
+                <div class="relative pl-6">
+                    <div class="absolute -left-[9px] top-0.5 w-4 h-4 rounded-full bg-brand-900 border-2 border-white"></div>
+                    <h4 class="font-bold text-brand-900 text-sm">Kurir sedang menuju lokasimu</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Review Modal -->
+<div id="review-modal" class="inactive popup-modal fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 cursor-pointer" onclick="closeReviewModal()">
+    <div class="bg-white p-8 max-w-md w-full relative shadow-2xl cursor-default" onclick="event.stopPropagation()">
+        <button onclick="closeReviewModal()" class="absolute top-6 right-6 text-2xl text-gray-400 hover:text-brand-900 transition-colors"><i class="fa-solid fa-xmark"></i></button>
+        <h3 class="font-heading font-bold text-2xl mb-1">Beri Ulasan</h3>
+        <p id="review-product-name" class="text-sm text-gray-500 mb-8 font-medium">Essential Black Tee</p>
+        <div class="text-center mb-8">
+            <div class="flex justify-center gap-3 text-4xl text-gray-200" id="star-rating">
+                <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400" onclick="setRating(1)"></i>
+                <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400" onclick="setRating(2)"></i>
+                <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400" onclick="setRating(3)"></i>
+                <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400" onclick="setRating(4)"></i>
+                <i class="fa-solid fa-star cursor-pointer hover:text-yellow-400" onclick="setRating(5)"></i>
+            </div>
+        </div>
+        <button onclick="submitReview()" class="w-full bg-brand-900 text-white font-bold py-4 hover:bg-brand-800 transition-colors flex justify-center items-center gap-2"><i class="fa-solid fa-paper-plane text-sm"></i> Kirim Ulasan</button>
+    </div>
+</div>

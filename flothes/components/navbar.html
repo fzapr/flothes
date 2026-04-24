@@ -1,0 +1,50 @@
+<!-- Navbar Global -->
+<nav class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/70 border-b border-gray-200 shadow-sm" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+            <div class="flex items-center">
+                <a href="index.html" class="font-heading font-bold text-3xl tracking-tighter">FLOTHES.</a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="category.html" class="text-sm font-medium hover:text-gray-500 transition-colors">Koleksi</a>
+                <a href="category.html?type=pria" class="text-sm font-medium hover:text-gray-500 transition-colors">Pria</a>
+                <a href="category.html?type=wanita" class="text-sm font-medium hover:text-gray-500 transition-colors">Wanita</a>
+                <a href="category.html?type=sale" class="text-sm font-medium text-red-600 hover:text-red-800 transition-colors">Sale</a>
+            </div>
+            <div class="flex items-center space-x-4 sm:space-x-5">
+                <button onclick="openSearch()" class="hover:text-gray-500 transition-colors transform hover:scale-110 duration-200"><i class="fa-solid fa-magnifying-glass text-lg"></i></button>
+                
+                <button onclick="toggleWishlistDrawer()" class="hover:text-gray-500 transition-colors relative transform hover:scale-110 duration-200">
+                    <i class="fa-regular fa-heart text-lg"></i>
+                    <span id="wishlist-counter" class="absolute -top-1.5 -right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+                </button>
+
+                <button onclick="checkAuthAndNavigate()" class="hover:text-gray-500 transition-colors transform hover:scale-110 duration-200"><i class="fa-regular fa-user text-lg"></i></button>
+                
+                <button onclick="toggleCartDrawer()" class="hover:text-gray-500 transition-colors relative transform hover:scale-110 duration-200">
+                    <i class="fa-solid fa-bag-shopping text-lg"></i>
+                    <span id="cart-counter" class="absolute -top-1.5 -right-2 bg-brand-900 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                </button>
+
+                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl ml-2 hover:text-gray-500 transition-colors"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-[60] bg-white flex flex-col pt-24 px-8 pb-8 md:hidden">
+    <button onclick="toggleMobileMenu()" class="absolute top-8 right-8 text-3xl text-brand-900 hover:rotate-90 transition-transform"><i class="fa-solid fa-xmark"></i></button>
+    <nav class="flex flex-col space-y-6 text-2xl font-heading font-bold">
+        <a href="index.html" class="text-left hover:text-gray-500 transition-colors">Home</a>
+        <a href="category.html" class="text-left hover:text-gray-500 transition-colors">Koleksi</a>
+        <a href="category.html?type=pria" class="text-left hover:text-gray-500 transition-colors">Pria</a>
+        <a href="category.html?type=wanita" class="text-left hover:text-gray-500 transition-colors">Wanita</a>
+        <a href="category.html?type=sale" class="text-left text-red-600 hover:text-red-800 transition-colors">Sale</a>
+    </nav>
+    <div class="mt-auto border-t border-gray-200 pt-6 space-y-4">
+        <button onclick="toggleMobileMenu(); checkAuthAndNavigate()" class="flex items-center gap-3 text-lg font-bold hover:text-gray-500 w-full"><i class="fa-regular fa-user w-6"></i> Akun Saya</button>
+        <button onclick="toggleMobileMenu(); toggleWishlistDrawer()" class="flex items-center gap-3 text-lg font-bold hover:text-gray-500 w-full"><i class="fa-regular fa-heart w-6"></i> Wishlist</button>
+        <button onclick="toggleMobileMenu(); openSearch()" class="flex items-center gap-3 text-lg font-bold hover:text-gray-500 w-full"><i class="fa-solid fa-magnifying-glass w-6"></i> Pencarian</button>
+    </div>
+</div>

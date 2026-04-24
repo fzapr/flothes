@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flothes | Detail Produk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body text-brand-900 bg-brand-100 antialiased selection:bg-brand-900 selection:text-white flex flex-col min-h-screen">
+
+    <div id="modals-container"></div>
+    <div id="navbar-container"></div>
+
+    <main class="flex-grow pt-20" id="main-container">
+        <!-- Breadcrumb -->
+        <div class="bg-gray-50 border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4 text-xs font-medium text-gray-500">
+                <a href="index.html" class="hover:text-brand-900">Home</a> <span class="mx-2">/</span>
+                <a href="category.html" class="hover:text-brand-900">Pria</a> <span class="mx-2">/</span>
+                <span class="text-brand-900 font-bold">Urban Oversized Shirt</span>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+                <!-- Product Gallery -->
+                <div class="space-y-4">
+                    <div class="relative bg-gray-100 aspect-[3/4] md:aspect-square overflow-hidden cursor-zoom-in group">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1500&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-wide">Baru</div>
+                    </div>
+                    <div class="grid grid-cols-4 gap-4">
+                        <div class="aspect-square bg-gray-100 cursor-pointer border-2 border-brand-900">
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover">
+                        </div>
+                        <div class="aspect-square bg-gray-100 cursor-pointer border-2 border-transparent hover:border-gray-300 opacity-60 hover:opacity-100 transition-all">
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover grayscale">
+                        </div>
+                        <div class="aspect-square bg-gray-100 cursor-pointer border-2 border-transparent hover:border-gray-300 opacity-60 hover:opacity-100 transition-all">
+                            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover grayscale">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="flex flex-col">
+                    <div class="mb-8">
+                        <h1 class="font-heading text-3xl md:text-5xl font-bold mb-4">Urban Oversized Shirt</h1>
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-2xl md:text-3xl font-bold text-brand-900">Rp 349.000</span>
+                            <div class="flex items-center text-sm font-medium text-gray-500">
+                                <div class="flex text-yellow-400 mr-2 text-xs">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                                </div>
+                                (128 Ulasan)
+                            </div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">Kemeja oversized dengan potongan modern dan material katun premium yang sejuk. Didesain untuk kenyamanan maksimal sepanjang hari dengan detail minimalis yang elegan.</p>
+                    </div>
+
+                    <div class="mb-8 space-y-6 border-y border-gray-200 py-6">
+                        <!-- Warna -->
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="font-bold text-sm">Warna: <span class="font-medium text-gray-500" id="selected-color">Putih Tulang</span></h3>
+                            </div>
+                            <div class="flex gap-3">
+                                <button class="w-10 h-10 rounded-full bg-white border-2 border-brand-900 shadow-sm relative"><i class="fa-solid fa-check absolute inset-0 flex items-center justify-center text-xs text-brand-900 mix-blend-difference"></i></button>
+                                <button class="w-10 h-10 rounded-full bg-black border-2 border-gray-200 hover:border-gray-400 transition-colors"></button>
+                                <button class="w-10 h-10 rounded-full bg-stone-500 border-2 border-gray-200 hover:border-gray-400 transition-colors"></button>
+                            </div>
+                        </div>
+
+                        <!-- Ukuran -->
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <h3 class="font-bold text-sm">Ukuran</h3>
+                                <button class="text-xs text-brand-900 font-bold underline underline-offset-2">Panduan Ukuran</button>
+                            </div>
+                            <div class="grid grid-cols-4 gap-3">
+                                <button class="py-3 border border-gray-300 font-medium text-sm hover:border-brand-900 transition-colors disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:border-gray-300">S</button>
+                                <button class="py-3 border-2 border-brand-900 font-bold text-sm bg-brand-900 text-white transition-colors">M</button>
+                                <button class="py-3 border border-gray-300 font-medium text-sm hover:border-brand-900 transition-colors">L</button>
+                                <button class="py-3 border border-gray-300 font-medium text-sm hover:border-brand-900 transition-colors">XL</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <div class="flex items-center border border-gray-300 h-14 sm:w-32">
+                            <button class="w-10 h-full flex items-center justify-center text-gray-500 hover:text-brand-900 hover:bg-gray-100 transition-colors"><i class="fa-solid fa-minus text-xs"></i></button>
+                            <input type="number" value="1" class="w-full text-center font-bold outline-none bg-transparent" readonly>
+                            <button class="w-10 h-full flex items-center justify-center text-gray-500 hover:text-brand-900 hover:bg-gray-100 transition-colors"><i class="fa-solid fa-plus text-xs"></i></button>
+                        </div>
+                        <button onclick="addToCart('Urban Oversized Shirt')" class="flex-1 bg-brand-900 text-white font-bold h-14 flex items-center justify-center gap-2 hover:bg-brand-800 transition-colors"><i class="fa-solid fa-bag-shopping"></i> Tambah ke Keranjang</button>
+                        <button onclick="toggleHeart(this, 'Urban Oversized Shirt')" class="h-14 w-14 border border-gray-300 flex items-center justify-center text-xl text-gray-400 hover:text-red-500 hover:border-red-500 transition-colors"><i class="fa-regular fa-heart"></i></button>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="border border-gray-200">
+                            <button class="w-full flex justify-between items-center p-4 font-bold text-sm bg-gray-50 hover:bg-gray-100 transition-colors">
+                                Detail Produk <i class="fa-solid fa-chevron-down text-xs transition-transform transform rotate-180"></i>
+                            </button>
+                            <div class="p-4 text-sm text-gray-600 leading-relaxed border-t border-gray-200 bg-white">
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Material: 100% Premium Cotton Combed 24s</li>
+                                    <li>Potongan: Oversized fit</li>
+                                    <li>Detail: Saku dada kiri, kancing tortoise</li>
+                                    <li>Perawatan: Cuci mesin air dingin, jangan gunakan pemutih, setrika suhu sedang</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="border border-gray-200">
+                            <button class="w-full flex justify-between items-center p-4 font-bold text-sm hover:bg-gray-50 transition-colors">
+                                Pengiriman & Retur <i class="fa-solid fa-chevron-down text-xs transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ulasan Pembeli -->
+        <div class="border-t border-gray-200 bg-white py-16">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <h2 class="font-heading text-2xl font-bold mb-8">Ulasan Pembeli (128)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="border border-gray-100 p-6 rounded-lg bg-gray-50">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-brand-900 text-white flex items-center justify-center font-bold rounded-full">AG</div>
+                                <div><h4 class="font-bold text-sm">Andi G.</h4><p class="text-xs text-gray-500">12 Okt 2026</p></div>
+                            </div>
+                            <div class="flex text-yellow-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2 font-medium">Bahan adem dan potongan pas!</p>
+                        <p class="text-sm text-gray-500">Sesuai ekspektasi. Oversizenya dapet banget, gak keliatan kedodoran. Bahannya juga nyerap keringat.</p>
+                    </div>
+                    <!-- Ulasan lainnya -->
+                    <div class="border border-gray-100 p-6 rounded-lg bg-gray-50">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-brand-900 text-white flex items-center justify-center font-bold rounded-full">RN</div>
+                                <div><h4 class="font-bold text-sm">Rina N.</h4><p class="text-xs text-gray-500">08 Okt 2026</p></div>
+                            </div>
+                            <div class="flex text-yellow-400 text-xs"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2 font-medium">Bagus, tapi ukurannya agak kebesaran</p>
+                        <p class="text-sm text-gray-500">Kualitas bahan bagus banget, cuma buat yang badannya kecil mending turun 1 size dari ukuran normal.</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="border border-brand-900 text-brand-900 px-6 py-2 font-bold hover:bg-brand-900 hover:text-white transition-colors text-sm">Muat Lebih Banyak Ulasan</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="assets/js/store.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/ai-stylist.js"></script>
+    <script src="assets/js/loader.js"></script>
+</body>
+</html>

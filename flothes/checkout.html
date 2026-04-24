@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flothes | Checkout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body text-brand-900 bg-brand-100 antialiased selection:bg-brand-900 selection:text-white flex flex-col min-h-screen">
+
+    <div id="modals-container"></div>
+    <div id="navbar-container"></div>
+
+    <main class="flex-grow pt-20" id="main-container">
+        <!-- HEADER -->
+        <div class="bg-white border-b border-gray-200 py-8">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+                <h1 class="font-heading text-2xl md:text-3xl font-bold">Checkout</h1>
+                <div class="flex items-center gap-2 text-sm font-medium">
+                    <i class="fa-solid fa-lock text-gray-400"></i> <span class="text-gray-500">Pembayaran Aman</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Form Pengiriman -->
+                <div class="lg:w-2/3">
+                    <div class="bg-white p-8 shadow-sm border border-gray-100 mb-8">
+                        <h2 class="font-heading font-bold text-xl mb-6 border-b border-gray-100 pb-4">1. Informasi Pengiriman</h2>
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-1">Nama Depan</label>
+                                    <input type="text" class="w-full border border-gray-300 p-3 bg-gray-50 focus:bg-white focus:outline-none focus:border-brand-900" placeholder="Budi">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-1">Nama Belakang</label>
+                                    <input type="text" class="w-full border border-gray-300 p-3 bg-gray-50 focus:bg-white focus:outline-none focus:border-brand-900" placeholder="Santoso">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Email</label>
+                                <input type="email" class="w-full border border-gray-300 p-3 bg-gray-50 focus:bg-white focus:outline-none focus:border-brand-900" placeholder="budi@example.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Alamat Lengkap</label>
+                                <input type="text" class="w-full border border-gray-300 p-3 bg-gray-50 focus:bg-white focus:outline-none focus:border-brand-900 mb-2" placeholder="Nama Jalan, Gedung, No. Rumah">
+                                <input type="text" class="w-full border border-gray-300 p-3 bg-gray-50 focus:bg-white focus:outline-none focus:border-brand-900" placeholder="Detail Lainnya (Opsional)">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-1">Provinsi</label>
+                                    <select class="w-full border border-gray-300 p-3 bg-gray-50 focus:bg-white focus:outline-none focus:border-brand-900">
+                                        <option>DKI Jakarta</option>
+                                        <option>Jawa Barat</option>
+                                        <option>Jawa Tengah</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-1">Kota/Kabupaten</label>
+                                    <select class="w-full border border-gray-300 p-3 bg-gray-50 focus:bg-white focus:outline-none focus:border-brand-900">
+                                        <option>Jakarta Selatan</option>
+                                        <option>Jakarta Pusat</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-1">Kode Pos</label>
+                                    <input type="text" class="w-full border border-gray-300 p-3 bg-gray-50 focus:bg-white focus:outline-none focus:border-brand-900" placeholder="12345">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Nomor Telepon</label>
+                                <input type="tel" class="w-full border border-gray-300 p-3 bg-gray-50 focus:bg-white focus:outline-none focus:border-brand-900" placeholder="081234567890">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="bg-white p-8 shadow-sm border border-gray-100">
+                        <h2 class="font-heading font-bold text-xl mb-6 border-b border-gray-100 pb-4">2. Metode Pembayaran</h2>
+                        <div class="space-y-3">
+                            <label class="flex items-center p-4 border border-brand-900 bg-gray-50 cursor-pointer">
+                                <input type="radio" name="payment" class="w-4 h-4 text-brand-900 focus:ring-brand-900" checked>
+                                <span class="ml-3 font-bold text-sm">Transfer Bank (Virtual Account)</span>
+                                <div class="ml-auto flex gap-2">
+                                    <div class="bg-white border border-gray-200 px-2 py-1 text-xs font-bold text-blue-800">BCA</div>
+                                    <div class="bg-white border border-gray-200 px-2 py-1 text-xs font-bold text-orange-600">BNI</div>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-gray-200 hover:border-gray-300 cursor-pointer transition-colors">
+                                <input type="radio" name="payment" class="w-4 h-4 text-brand-900 focus:ring-brand-900">
+                                <span class="ml-3 font-bold text-sm">Kartu Kredit / Debit</span>
+                                <div class="ml-auto flex gap-2 text-xl text-gray-400">
+                                    <i class="fa-brands fa-cc-visa"></i>
+                                    <i class="fa-brands fa-cc-mastercard"></i>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border border-gray-200 hover:border-gray-300 cursor-pointer transition-colors">
+                                <input type="radio" name="payment" class="w-4 h-4 text-brand-900 focus:ring-brand-900">
+                                <span class="ml-3 font-bold text-sm">E-Wallet</span>
+                                <div class="ml-auto text-xs font-bold bg-[#00aead] text-white px-2 py-1 rounded">GoPay</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ringkasan Pesanan -->
+                <div class="lg:w-1/3">
+                    <div class="bg-white p-6 shadow-sm border border-gray-100 sticky top-32">
+                        <h2 class="font-heading font-bold text-lg mb-6 border-b border-gray-100 pb-4">Ringkasan Pesanan</h2>
+                        <div class="space-y-4 mb-6" id="checkout-items-container">
+                            <!-- Items will be populated by store logic, static fallback below -->
+                            <div class="flex gap-4">
+                                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=150&auto=format&fit=crop" class="w-16 h-20 object-cover border border-gray-100">
+                                <div class="flex-1 flex flex-col justify-center">
+                                    <h4 class="font-bold text-sm leading-tight">Urban Oversized Shirt</h4>
+                                    <p class="text-xs text-gray-500 mb-1">Putih Tulang / M (1x)</p>
+                                    <p class="font-bold text-sm">Rp 349.000</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-100 pt-4 space-y-3 mb-6">
+                            <div class="flex justify-between text-sm"><span class="text-gray-500">Subtotal</span><span class="font-bold" id="checkout-subtotal">Rp 349.000</span></div>
+                            <div class="flex justify-between text-sm"><span class="text-gray-500">Biaya Pengiriman</span><span class="font-bold">Gratis</span></div>
+                            <div class="flex justify-between text-sm"><span class="text-gray-500">Pajak (11%)</span><span class="font-bold" id="checkout-tax">Rp 38.390</span></div>
+                        </div>
+                        <div class="border-t border-gray-200 pt-4 flex justify-between items-center mb-6">
+                            <span class="font-bold text-lg">Total</span>
+                            <span class="font-bold text-2xl text-brand-900" id="checkout-total">Rp 387.390</span>
+                        </div>
+                        <button onclick="processPayment()" class="w-full bg-brand-900 text-white font-bold py-4 uppercase tracking-wide hover:bg-brand-800 transition-colors flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-lock text-sm"></i> Bayar Sekarang
+                        </button>
+                        <p class="text-center text-xs text-gray-400 mt-4"><i class="fa-solid fa-shield-halved mr-1"></i> Transaksi dienkripsi secara aman.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="assets/js/store.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/ai-stylist.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script>
+        // Custom logic for checkout
+        function loadCheckoutCart() {
+            if(!window.Store) return;
+            const cart = Store.getCart();
+            const container = document.getElementById('checkout-items-container');
+            if(!container) return;
+            
+            container.innerHTML = '';
+            let subtotal = 0;
+            
+            if(cart.length === 0) {
+                container.innerHTML = '<p class="text-sm text-gray-500">Keranjang kosong</p>';
+                document.getElementById('checkout-subtotal').innerText = 'Rp 0';
+                document.getElementById('checkout-tax').innerText = 'Rp 0';
+                document.getElementById('checkout-total').innerText = 'Rp 0';
+                return;
+            }
+            
+            cart.forEach(item => {
+                subtotal += item.price;
+                const html = `
+                    <div class="flex gap-4">
+                        <img src="${item.img}" class="w-16 h-20 object-cover border border-gray-100">
+                        <div class="flex-1 flex flex-col justify-center">
+                            <h4 class="font-bold text-sm leading-tight">${item.name}</h4>
+                            <p class="text-xs text-gray-500 mb-1">${item.variant} (1x)</p>
+                            <p class="font-bold text-sm">Rp ${item.price.toLocaleString('id-ID')}</p>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', html);
+            });
+            
+            const tax = Math.round(subtotal * 0.11);
+            const total = subtotal + tax;
+            
+            document.getElementById('checkout-subtotal').innerText = `Rp ${subtotal.toLocaleString('id-ID')}`;
+            document.getElementById('checkout-tax').innerText = `Rp ${tax.toLocaleString('id-ID')}`;
+            document.getElementById('checkout-total').innerText = `Rp ${total.toLocaleString('id-ID')}`;
+        }
+        
+        function processPayment() {
+            const modal = document.getElementById('payment-modal');
+            const loading = document.getElementById('payment-loading');
+            const success = document.getElementById('payment-success');
+            if(!modal) return;
+            
+            modal.classList.remove('inactive');
+            modal.classList.add('active');
+            loading.style.display = 'flex';
+            success.style.display = 'none';
+            
+            setTimeout(() => {
+                loading.style.display = 'none';
+                success.style.display = 'flex';
+                // Clear cart on success
+                localStorage.setItem('flothes_cart', JSON.stringify([]));
+                if(window.Store) Store.init();
+                setTimeout(() => {
+                    window.location.href = 'profile.html';
+                }, 2000);
+            }, 2500);
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(loadCheckoutCart, 100);
+        });
+    </script>
+</body>
+</html>

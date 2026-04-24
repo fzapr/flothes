@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flothes | Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body text-brand-900 bg-gray-50 antialiased h-screen flex overflow-hidden">
+
+    <!-- Admin Sidebar -->
+    <aside class="w-64 bg-brand-900 text-white flex flex-col h-full hidden md:flex flex-shrink-0">
+        <div class="h-20 flex items-center justify-center border-b border-white/10">
+            <h1 class="font-heading font-bold text-2xl tracking-tighter">FLOTHES ADMIN</h1>
+        </div>
+        <nav class="flex-1 py-8 px-4 space-y-2">
+            <a href="#" class="flex items-center gap-3 px-4 py-3 bg-white/10 rounded-lg text-sm font-bold text-white"><i class="fa-solid fa-chart-pie w-5"></i> Dashboard</a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-white/5 rounded-lg text-sm font-medium text-gray-300 transition-colors"><i class="fa-solid fa-box w-5"></i> Kelola Produk</a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-white/5 rounded-lg text-sm font-medium text-gray-300 transition-colors"><i class="fa-solid fa-cart-shopping w-5"></i> Pesanan</a>
+            <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-white/5 rounded-lg text-sm font-medium text-gray-300 transition-colors"><i class="fa-solid fa-users w-5"></i> Pelanggan</a>
+        </nav>
+        <div class="p-4 border-t border-white/10">
+            <a href="index.html" class="flex items-center gap-3 px-4 py-3 hover:bg-white/5 rounded-lg text-sm font-medium text-gray-300 transition-colors"><i class="fa-solid fa-arrow-right-from-bracket w-5"></i> Keluar</a>
+        </div>
+    </aside>
+
+    <!-- Admin Content -->
+    <main class="flex-1 flex flex-col h-full overflow-hidden">
+        <header class="h-20 bg-white border-b border-gray-200 flex items-center justify-between px-8 flex-shrink-0">
+            <div class="flex items-center gap-4">
+                <button class="md:hidden text-2xl"><i class="fa-solid fa-bars"></i></button>
+                <h2 class="font-heading font-bold text-xl">Overview</h2>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <i class="fa-solid fa-bell text-gray-400 text-xl"></i>
+                    <span class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white"></span>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-brand-900 text-white flex items-center justify-center font-bold">AD</div>
+            </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto p-8">
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xl"><i class="fa-solid fa-money-bill-wave"></i></div>
+                    <div><p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Pendapatan</p><h3 class="text-xl font-bold">Rp 45.2M</h3></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <div><p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Pesanan Baru</p><h3 class="text-xl font-bold">128</h3></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center text-xl"><i class="fa-solid fa-box"></i></div>
+                    <div><p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Total Produk</p><h3 class="text-xl font-bold">452</h3></div>
+                </div>
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center text-xl"><i class="fa-solid fa-users"></i></div>
+                    <div><p class="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1">Pelanggan</p><h3 class="text-xl font-bold">2.4k</h3></div>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                <div class="p-6 border-b border-gray-100 flex justify-between items-center">
+                    <h3 class="font-heading font-bold text-lg">Pesanan Terbaru</h3>
+                    <button class="text-sm font-bold text-brand-900">Lihat Semua</button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-gray-50 text-gray-500 font-bold uppercase tracking-wider text-xs">
+                            <tr>
+                                <th class="px-6 py-4 border-b border-gray-100">ID Pesanan</th>
+                                <th class="px-6 py-4 border-b border-gray-100">Pelanggan</th>
+                                <th class="px-6 py-4 border-b border-gray-100">Tanggal</th>
+                                <th class="px-6 py-4 border-b border-gray-100">Total</th>
+                                <th class="px-6 py-4 border-b border-gray-100">Status</th>
+                                <th class="px-6 py-4 border-b border-gray-100">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-bold">#ORD-001</td>
+                                <td class="px-6 py-4">Budi Anduk</td>
+                                <td class="px-6 py-4 text-gray-500">12 Okt 2026</td>
+                                <td class="px-6 py-4 font-bold">Rp 349.000</td>
+                                <td class="px-6 py-4"><span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">Proses</span></td>
+                                <td class="px-6 py-4"><button class="text-brand-900 hover:text-brand-800"><i class="fa-solid fa-eye"></i></button></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-bold">#ORD-002</td>
+                                <td class="px-6 py-4">Sarah Amalia</td>
+                                <td class="px-6 py-4 text-gray-500">12 Okt 2026</td>
+                                <td class="px-6 py-4 font-bold">Rp 599.000</td>
+                                <td class="px-6 py-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full">Pending</span></td>
+                                <td class="px-6 py-4"><button class="text-brand-900 hover:text-brand-800"><i class="fa-solid fa-eye"></i></button></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-4 font-bold">#ORD-003</td>
+                                <td class="px-6 py-4">Reza Rahadian</td>
+                                <td class="px-6 py-4 text-gray-500">11 Okt 2026</td>
+                                <td class="px-6 py-4 font-bold">Rp 1.250.000</td>
+                                <td class="px-6 py-4"><span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">Selesai</span></td>
+                                <td class="px-6 py-4"><button class="text-brand-900 hover:text-brand-800"><i class="fa-solid fa-eye"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

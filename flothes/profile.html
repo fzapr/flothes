@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flothes | Profil Akun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-body text-brand-900 bg-brand-100 antialiased selection:bg-brand-900 selection:text-white flex flex-col min-h-screen">
+
+    <div id="modals-container"></div>
+    <div id="navbar-container"></div>
+
+    <main class="flex-grow pt-20" id="main-container">
+        <!-- HEADER -->
+        <div class="bg-brand-900 text-white py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center gap-6">
+                <div class="w-24 h-24 rounded-full bg-white text-brand-900 flex items-center justify-center text-4xl font-bold font-heading">
+                    BA
+                </div>
+                <div class="text-center md:text-left">
+                    <h1 class="font-heading text-3xl md:text-4xl font-bold mb-1">Budi Anduk</h1>
+                    <p class="text-gray-300">budi@example.com • Member sejak 2026</p>
+                </div>
+                <button onclick="processLogout()" class="mt-4 md:mt-0 md:ml-auto px-6 py-2 border border-white/30 text-sm font-bold hover:bg-white hover:text-brand-900 transition-colors">
+                    Keluar
+                </button>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12 flex flex-col md:flex-row gap-8">
+            <!-- Sidebar Menu -->
+            <div class="md:w-64 flex-shrink-0">
+                <div class="bg-white border border-gray-100 shadow-sm overflow-hidden sticky top-32">
+                    <button onclick="switchProfileTab('pesanan')" id="tab-pesanan" class="w-full text-left px-6 py-4 font-bold border-l-4 border-brand-900 bg-gray-50 flex items-center gap-3 transition-colors">
+                        <i class="fa-solid fa-box w-5 text-center"></i> Pesanan Saya
+                    </button>
+                    <button onclick="switchProfileTab('pengaturan')" id="tab-pengaturan" class="w-full text-left px-6 py-4 font-medium text-gray-500 border-l-4 border-transparent hover:bg-gray-50 hover:text-brand-900 transition-colors flex items-center gap-3">
+                        <i class="fa-solid fa-gear w-5 text-center"></i> Pengaturan
+                    </button>
+                    <button onclick="toggleWishlistDrawer()" class="w-full text-left px-6 py-4 font-medium text-gray-500 border-l-4 border-transparent hover:bg-gray-50 hover:text-brand-900 transition-colors flex items-center gap-3">
+                        <i class="fa-regular fa-heart w-5 text-center"></i> Wishlist
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="flex-1">
+                <!-- Tab Pesanan -->
+                <div id="content-pesanan" class="profile-section active space-y-6">
+                    <h2 class="font-heading font-bold text-2xl mb-6">Pesanan Saya</h2>
+                    
+                    <!-- Pesanan Aktif -->
+                    <div class="bg-white border border-gray-200 shadow-sm overflow-hidden">
+                        <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center text-sm">
+                            <div class="flex items-center gap-4">
+                                <div><span class="text-gray-500 block text-xs">Nomor Pesanan</span><span class="font-bold">ORD-20261012-001</span></div>
+                                <div class="hidden sm:block"><span class="text-gray-500 block text-xs">Tanggal</span><span class="font-bold">12 Okt 2026</span></div>
+                            </div>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full border border-blue-200">Sedang Dikirim</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-4">
+                                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=150&auto=format&fit=crop" class="w-20 h-24 object-cover border border-gray-100">
+                                <div class="flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h4 class="font-bold text-sm leading-tight text-brand-900">Urban Oversized Shirt</h4>
+                                        <p class="text-xs text-gray-500 mt-1">Putih Tulang / M (1x)</p>
+                                    </div>
+                                    <p class="font-bold text-sm">Rp 349.000</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-gray-100 flex justify-between items-center">
+                                <div><span class="text-gray-500 text-sm">Total Belanja:</span> <span class="font-bold text-lg text-brand-900 ml-2">Rp 349.000</span></div>
+                                <button onclick="openTracking()" class="px-6 py-2 bg-brand-900 text-white font-bold text-sm hover:bg-brand-800 transition-colors">Lacak Pesanan</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pesanan Selesai -->
+                    <div class="bg-white border border-gray-200 shadow-sm overflow-hidden opacity-80">
+                        <div class="bg-gray-50 px-6 py-4 border-b border-gray-200 flex justify-between items-center text-sm">
+                            <div class="flex items-center gap-4">
+                                <div><span class="text-gray-500 block text-xs">Nomor Pesanan</span><span class="font-bold">ORD-20260905-088</span></div>
+                                <div class="hidden sm:block"><span class="text-gray-500 block text-xs">Tanggal</span><span class="font-bold">05 Sep 2026</span></div>
+                            </div>
+                            <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full border border-green-200">Selesai</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex gap-4">
+                                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=150&auto=format&fit=crop" class="w-20 h-24 object-cover border border-gray-100 grayscale-[30%]">
+                                <div class="flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h4 class="font-bold text-sm leading-tight text-brand-900">Essential Black Tee</h4>
+                                        <p class="text-xs text-gray-500 mt-1">Hitam / L (2x)</p>
+                                    </div>
+                                    <p class="font-bold text-sm">Rp 338.300</p>
+                                </div>
+                            </div>
+                            <div class="mt-6 pt-6 border-t border-gray-100 flex justify-between items-center">
+                                <div><span class="text-gray-500 text-sm">Total Belanja:</span> <span class="font-bold text-lg text-brand-900 ml-2">Rp 338.300</span></div>
+                                <button onclick="openReviewModal('Essential Black Tee')" class="px-6 py-2 border border-brand-900 text-brand-900 font-bold text-sm hover:bg-brand-900 hover:text-white transition-colors">Beri Ulasan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Pengaturan -->
+                <div id="content-pengaturan" class="profile-section space-y-8">
+                    <h2 class="font-heading font-bold text-2xl mb-6">Pengaturan Akun</h2>
+                    
+                    <div class="bg-white p-8 border border-gray-200 shadow-sm">
+                        <h3 class="font-bold text-lg mb-4 border-b border-gray-100 pb-2">Informasi Pribadi</h3>
+                        <form class="space-y-4 max-w-lg" onsubmit="event.preventDefault(); showToast('Profil diperbarui!');">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Nama Lengkap</label>
+                                <input type="text" class="w-full border border-gray-300 p-3 focus:outline-none focus:border-brand-900" value="Budi Anduk">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Email</label>
+                                <input type="email" class="w-full border border-gray-300 p-3 bg-gray-100 text-gray-500 cursor-not-allowed" value="budi@example.com" readonly>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1">Nomor Telepon</label>
+                                <input type="tel" class="w-full border border-gray-300 p-3 focus:outline-none focus:border-brand-900" value="081234567890">
+                            </div>
+                            <button type="submit" class="bg-brand-900 text-white font-bold py-3 px-8 hover:bg-brand-800 transition-colors">Simpan Perubahan</button>
+                        </form>
+                    </div>
+
+                    <div class="bg-white p-8 border border-gray-200 shadow-sm">
+                        <h3 class="font-bold text-lg mb-4 border-b border-gray-100 pb-2">Alamat Tersimpan</h3>
+                        <div class="border border-brand-900 p-4 relative mb-4">
+                            <span class="absolute top-0 right-0 bg-brand-900 text-white text-[10px] font-bold px-2 py-1">UTAMA</span>
+                            <h4 class="font-bold text-sm mb-1">Rumah</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed">Budi Anduk (+62 812-3456-7890)<br>Jalan Sudirman No. 123, Apartemen Sudirman Park Tower A Lt. 10<br>Jakarta Selatan, DKI Jakarta 12345</p>
+                            <div class="mt-4 flex gap-4 text-sm font-bold">
+                                <button class="text-brand-900 underline">Ubah</button>
+                            </div>
+                        </div>
+                        <button class="w-full border border-dashed border-gray-300 py-4 text-sm font-bold text-gray-500 hover:border-brand-900 hover:text-brand-900 transition-colors">+ Tambah Alamat Baru</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="assets/js/store.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/ai-stylist.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script>
+        function switchProfileTab(tabId) {
+            document.querySelectorAll('.profile-section').forEach(el => el.classList.remove('active'));
+            document.getElementById(`content-${tabId}`).classList.add('active');
+
+            const tabPesanan = document.getElementById('tab-pesanan');
+            const tabPengaturan = document.getElementById('tab-pengaturan');
+
+            if(tabId === 'pesanan') {
+                tabPesanan.className = "w-full text-left px-6 py-4 font-bold border-l-4 border-brand-900 bg-gray-50 flex items-center gap-3 transition-colors";
+                tabPengaturan.className = "w-full text-left px-6 py-4 font-medium text-gray-500 border-l-4 border-transparent hover:bg-gray-50 hover:text-brand-900 transition-colors flex items-center gap-3";
+            } else {
+                tabPengaturan.className = "w-full text-left px-6 py-4 font-bold border-l-4 border-brand-900 bg-gray-50 flex items-center gap-3 transition-colors";
+                tabPesanan.className = "w-full text-left px-6 py-4 font-medium text-gray-500 border-l-4 border-transparent hover:bg-gray-50 hover:text-brand-900 transition-colors flex items-center gap-3";
+            }
+        }
+        
+        function openTracking() {
+            const modal = document.getElementById('tracking-modal');
+            if(modal) {
+                modal.classList.remove('inactive');
+                modal.classList.add('active');
+            }
+        }
+        
+        function closeTracking() {
+            const modal = document.getElementById('tracking-modal');
+            if(modal) {
+                modal.classList.remove('active');
+                modal.classList.add('inactive');
+            }
+        }
+        
+        function openReviewModal(productName) {
+            const modal = document.getElementById('review-modal');
+            const nameEl = document.getElementById('review-product-name');
+            if(modal && nameEl) {
+                nameEl.innerText = productName;
+                modal.classList.remove('inactive');
+                modal.classList.add('active');
+            }
+        }
+        
+        function closeReviewModal() {
+            const modal = document.getElementById('review-modal');
+            if(modal) {
+                modal.classList.remove('active');
+                modal.classList.add('inactive');
+            }
+        }
+        
+        function setRating(stars) {
+            const container = document.getElementById('star-rating');
+            if(!container) return;
+            const icons = container.querySelectorAll('i');
+            icons.forEach((icon, index) => {
+                if(index < stars) {
+                    icon.classList.replace('fa-regular', 'fa-solid');
+                    icon.classList.add('text-yellow-400');
+                    icon.classList.remove('text-gray-200');
+                } else {
+                    icon.classList.replace('fa-solid', 'fa-regular');
+                    icon.classList.add('text-gray-200');
+                    icon.classList.remove('text-yellow-400');
+                }
+            });
+        }
+        
+        function submitReview() {
+            if(window.showToast) showToast('Ulasan berhasil dikirim!');
+            closeReviewModal();
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            if(window.Store && !Store.isLoggedIn()) {
+                window.location.href = 'index.html'; // Protect route
+            }
+        });
+    </script>
+</body>
+</html>
